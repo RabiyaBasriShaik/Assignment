@@ -1,8 +1,8 @@
-Feature: Wait For progress bar
+Feature: Wait For progress bar to Disappear
 
   	
 	@Elements_test
-  	Scenario: Tap On Dsiplay Progress Bar
+  	Scenario: Wait For progress bar to Disappear
   	 Given User Launches the application
   	And Clicks on Show Progress Bar
   	And Waits for Progress bar to disapper

@@ -1,10 +1,8 @@
 package applicationPages;
 
-
-
 import java.util.List;
-
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import com.appium.commonFunctions.Login;
 import com.appium.libraries.Generic;
@@ -26,9 +24,9 @@ public class JqueryPage extends SuperTestNG {
 
 	public void dragAndDrop() {
 		try {
- Generic.dragAndDrop("Draggable","Droppable");
+		Generic.dragAndDrop("Draggable","Droppable");
 		}catch(Exception ex) {
-			
+			Assert.fail(ex.getMessage());
 		}
 	}
 
@@ -54,12 +52,10 @@ public class JqueryPage extends SuperTestNG {
 
 	public void selectControlGroupItems() {
 		Generic.findObjectsAndPerformAction("AutomaticElements",0);
-		
 		Generic.findObjectsAndPerformAction("Insurance_Elements",0);
 		List<WebElement> list_insurance = Generic.findObjectsInFrame("Insurance_Elements");
 		Generic.toggleCheckBoxInFrame(list_insurance.get(0),"check");
 		Generic.click("Standard_RadioButton");
 		Generic.toggleCheckBoxInFrame(list_insurance.get(1),"check");
- 		
 	}
 }

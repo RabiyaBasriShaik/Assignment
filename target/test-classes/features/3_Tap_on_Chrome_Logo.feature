@@ -1,8 +1,8 @@
-Feature: tap on Chrome Logo	
+Feature: Tap on Chrome Logo and Select Car 
 
   	
 	@chrome_page
-  	Scenario: Tap On Chrome Logo and Verify for Elements
+  	Scenario: Tap on Chrome Logo and Select Car
   	 Given User Launches the application
   	And Clicks on ChromeLogo
   	Then Title WebViewInteraction is displayed

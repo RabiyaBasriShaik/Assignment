@@ -1,4 +1,4 @@
-Feature: Display Toast Text	
+Feature: Display Toast Text	Display Pop UP
 
   	Background:
 Given User Launches the application

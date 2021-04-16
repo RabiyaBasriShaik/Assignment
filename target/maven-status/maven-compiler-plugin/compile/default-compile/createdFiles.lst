@@ -1,6 +1,3 @@
-.cucumber\cucumber.stepDefinitions.tmp
-com\appium\libraries\SuperTestNG.class
 com\appium\utilities\Config.class
-com\appium\utilities\ReadXML.class
-com\appium\commonFunctions\Login.class
+com\appium\libraries\SuperTestNG.class
 com\appium\utilities\ReadXL.class

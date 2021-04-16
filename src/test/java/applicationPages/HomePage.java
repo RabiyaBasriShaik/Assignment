@@ -1,18 +1,20 @@
 package applicationPages;
 
-
-
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 import com.appium.commonFunctions.Login;
 import com.appium.libraries.Generic;
 import com.appium.libraries.SuperTestNG;
-import com.aventstack.extentreports.Status;
+
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.appmanagement.ApplicationState;
 
 
 public class HomePage extends SuperTestNG {
+	SoftAssert softAssertion= new SoftAssert();
 	  public void goToHomePage() {
 	    	Login.login(environment);
 	        
@@ -20,11 +22,9 @@ public class HomePage extends SuperTestNG {
 
 	public void verifyTitle() throws IOException {
 		Generic.waitForObject("Title_Home",5);
-	String expected = Generic.findObjectInApp("Title_Home").getText();
-		Assert.assertEquals(driver.getTitle(),expected);
-		 
-		 
-		
+	    String expected = Generic.findObjectInApp("Title_Home").getText();
+		Assert.assertEquals(title,expected);
+				
 }
 	public void verifyElements() throws Exception {
 		
@@ -39,20 +39,17 @@ public class HomePage extends SuperTestNG {
 			Generic.isElementdisplayedInApp("Exception_Btn");
 			Generic.isElementdisplayedInApp("TypeToThrowException");
 			Generic.isElementdisplayedInApp("Display_Focus_On_Layout");
-		
 	}
 	
 	public void isScreenDisplayed() throws Exception {
 		Generic.isElementdisplayedInApp("EN_Button");
-		Generic.isElementdisplayedInApp("Chrome_Button");
-		Generic.isElementdisplayedInApp("User_Reg_Button");
+		//Generic.isElementdisplayedInApp("Chrome_Button");
+		//Generic.isElementdisplayedInApp("User_Reg_Button");
 		}
 
 	public void clickENBUtton() {
 		Generic.clickInApp("EN_Button");
-		
-		
-	}
+		}
 	
 	public void selectOptionNoNo() {
 		
@@ -73,9 +70,8 @@ public class HomePage extends SuperTestNG {
 	}
 
 	public void waitsForProgressBartoDisappear() {
-		Generic.waitProgressBar(20, 5);
-		
-	}
+		Generic.waitForObjectInApp("register_username", 50, 500);
+		}
 
 	public void clickOnProgressBar() {
 		Generic.clickInApp("ShowProgressBar_For_A_While");
@@ -87,8 +83,10 @@ public class HomePage extends SuperTestNG {
 		try {
 		String toastText = Generic.findToastElement().getText();
 		System.out.println("Toast Text"+ toastText);
+		String expectedToastText = "";
+		softAssertion.assertEquals(toastText, expectedToastText);
 		}catch(Exception ex) {
-			
+			ex.printStackTrace();
 		}
 	}
 
@@ -100,41 +98,39 @@ public class HomePage extends SuperTestNG {
 
 	public void clickOnDisplayPopUP() {
 		Generic.clickInApp("DisplayPopUp_Btn");
-		
-		
-	}
+		}
 
 	public void tapOnDismiss() {
 		Generic.clickInApp("Dismiss_Button");
-		
-		
+				
 	}
 
 	public void TapUnandledException() {
 		Generic.clickInApp("Exception_Btn");
-
-		
-		
+	
 	}
 
 	public void appshouldNotBeActive() throws IOException {
 		try {
-			Generic.waitForObject("Title_Home",5);
-		String expected = Generic.findObjectInApp("Title_Home").getText();
-		Assert.assertNotEquals(driver.getTitle(),expected);
-		System.out.println(driver.getTitle() + " "+ expected);
+//			Generic.waitForObject("Title_Home",5);
+//		String expected = Generic.findObjectInApp("Title_Home").getText();
+//		Assert.assertNotEquals(title,expected);
+//		System.out.println("title" +expected);
+		 Assert.assertEquals((((AppiumDriver) driver).queryAppState(appPackage)), ApplicationState.NOT_RUNNING);
+		System.out.println("after query app state "+(((AppiumDriver) driver).queryAppState(appPackage)));
+		System.out.println("APplication status" +ApplicationState.NOT_RUNNING);
 		}catch(Exception ex) {
-			
+			Assert.fail(ex.getMessage());
 		}
 		
 	}
 
 	public void enterTextToThrowException() throws IOException {
 		try {
-			Generic.performActionInApp("TypeToThrowException","Exception");
+			Generic.enterText("TypeToThrowException", "Exception");
 		} catch (Exception e) {
 			
-			
+			Assert.fail(e.getMessage());
 			
 		}
 		

@@ -155,7 +155,12 @@
     <artifactId>maven-cucumber-reporting</artifactId>
     <version>5.5.0</version>
 </dependency>
-
+	<dependency>
+	    <groupId>info.cukes</groupId>
+	    <artifactId>cucumber-picocontainer</artifactId>
+	    <version>1.2.5</version>
+	    <scope>test</scope>
+	</dependency>
 
 <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 <dependency>

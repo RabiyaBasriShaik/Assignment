@@ -1,8 +1,8 @@
-Feature: tap on File Logo	
+Feature: Tap on File Icon and Register User	
 
   	
-	@home_page
-  	Scenario: Tap On File Logo and Verify for Elements
+	@register_page
+  	Scenario: Tap on File Icon and Register User
   	 Given User Launches the application
   	And Clicks on FileLogo
   	Then Verify for Title

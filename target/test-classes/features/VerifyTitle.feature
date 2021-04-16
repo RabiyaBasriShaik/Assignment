@@ -1,4 +1,4 @@
-Feature: Home Page Verifications
+Feature: Home Page Validation
 
   @home_page
   Scenario: Check Title and elements

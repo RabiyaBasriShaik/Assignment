@@ -3,12 +3,12 @@ package com.appium.utilities;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+
 
 public class ReadXL 
 {
@@ -344,5 +344,28 @@ public static int getRow(String path,String sheet,String search)
          }
          
     }
+
+
+		public static ArrayList<String> xlToArrayList(String path,String sheet,int row)
+	    {
+	           ArrayList<String> rowValues=new ArrayList<String>();
+	           try
+	           {        	   
+	        	      int col=ReadXL.XLCol(path, sheet, row);
+	                  for(int i=0;i<col;i++)
+	                  {  
+	                		  if(wb.getSheet(sheet).getRow(row).getCell(i)==null){               			  
+	                			  rowValues.add(null);               			  
+	                		  }else{                       
+	                			  rowValues.add(wb.getSheet(sheet).getRow(row).getCell(i).getStringCellValue().toString());
+	                		  }      	   
+	                  }	 
+	           }catch(Exception e)
+	           {
+	         	  System.out.print("Execption in Method ::xlToArrayList");
+	           }         
+	           return rowValues;
+	   
+	}
 	
 }

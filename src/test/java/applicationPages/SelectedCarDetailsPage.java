@@ -1,16 +1,10 @@
 package applicationPages;
 
 
-import java.util.List;
-
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 
 import com.appium.libraries.Generic;
 import com.appium.libraries.SuperTestNG;
-import com.appium.utilities.ReadXL;
-
-import io.appium.java_client.MobileElement;
 
 public class SelectedCarDetailsPage extends SuperTestNG{
 

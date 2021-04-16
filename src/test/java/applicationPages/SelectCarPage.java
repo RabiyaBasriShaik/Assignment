@@ -1,7 +1,5 @@
 package applicationPages;
 
-
-
 import org.testng.Assert;
 
 import com.appium.libraries.Generic;
@@ -16,7 +14,7 @@ public class SelectCarPage extends SuperTestNG {
 	public void verifyTitle() {
 		Generic.waitForObject("Title_Home",10);
 	String expected = Generic.findObjectInApp("Title_Home").getText();
-		//Assert.assertEquals(driver.getTitle(),expected);
+		Assert.assertEquals(title,expected);
 		System.out.println("Title from app"+ expected);
 		
 }

@@ -7,10 +7,6 @@ import com.appium.utilities.Config;
 
 public class SuperTestNG extends Config
 {
-	{
-		
-	}
 	public static WebDriver driver;	
-	
 
 }

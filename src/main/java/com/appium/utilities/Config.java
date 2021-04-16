@@ -2,9 +2,6 @@ package com.appium.utilities;
 
 import java.io.File;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-
 
 
 public class Config 
@@ -13,7 +10,7 @@ public class Config
 	public static String browser="IEB";
 	public static String iedriver=".\\ExeFiles\\IEDriverServer.exe";
 	public static String chromedriver=".\\ExeFiles\\chromedriver.exe";
-	public static String customer="SmartFactory";
+	public static String customer="Appium";
 	public static String environment="Dev";
 	public static String defaultSelectedCar="Car";
 	public static String enterusername ="Google";
@@ -24,23 +21,26 @@ public class Config
 	
 	public static String input_password = "pass123";
 	public static String input_email ="testUser@gmail.com";
-	public static String input_user_name = "APpiumUser";
-	
+	public static String input_user_name = "AppiumUser";
+	public static int UserName = 0;
+	public static int Email = 1;
+	public static int Password = 2;
 	public static String appiumdriver=System.getProperty("user.dir")+ File.separator+ "ExeFiles"+File.separator+ "selendroid-test-app.apk";
 	public static String expected_reg_prog ="PHP";
 	public static String expected_reg_accept = "true";
 	public static String extent_config_path = ".\\ExtentConfig\\extent-config.xml";
+	public static String appPackage = "io.selendroid.testapp";
 	
 	public static String Admin=".\\TestData\\"+customer+"\\Admin.xlsx";
-
+	public static String title = "selendroid-test-app";
 	
     public static String APPLICATION_NAME="Android";
     public static String PLATFORM_VERSION ="11.0";
     public static String DEVICE_NAME = "Pixel 2_New";
     
     public static String AUTOMATION_NAME = "UiAutomator2";
-public static String webenvironment = "Web";
-public static String url = "https://jqueryui.com/";
+    public static String webenvironment = "Web";
+    public static String url = "https://jqueryui.com/";
 
 
 }

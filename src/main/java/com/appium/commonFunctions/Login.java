@@ -50,7 +50,7 @@ public class Login extends SuperTestNG{
                  
 				driver=new ChromeDriver();
 				driver.manage().window().maximize();
-			
+				driver.navigate().to(url);
 
 			}
 			if(ReadXL.XLCellValue(Admin, "Login", environment, "Browser").equals("Firefox")){
@@ -79,10 +79,9 @@ public class Login extends SuperTestNG{
 						  //Generic.click("Continue");
 						 MobileElement me = (MobileElement) driver.findElement(By.id("com.android.permissioncontroller:id/continue_button"));
 						 me.click();
-						  System.out.println("Dismissed alert");
+						 
 					  }
 					  Thread.sleep(1000);
-					 	System.out.println("Dismissed alert");
 					 	if(Generic.isElementdisplayedInApp("OK_Check_For_Updates")) {
 						MobileElement el1 = (MobileElement) Generic.findObject("OK_Check_For_Updates");
 						el1.click();
@@ -94,13 +93,12 @@ public class Login extends SuperTestNG{
 					}
 				
 			
-			driver.navigate().to(url);
+			
 			
 		
 			
 		}catch(Exception e)
 		{
-			
 			e.printStackTrace();
 			driver.close();
 		}
