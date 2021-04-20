@@ -26,7 +26,7 @@ public class SelectedCarDetailsPage extends SuperTestNG{
 			}
 
 			public void verifyTextThisIsMyWay() {
-				Generic.waitForObject("MyWayOfSayingHello", 5);
+				Generic.waitForObject("MyWayOfSayingHello", 10);
 				String textFromApp = Generic.findObjectInApp("MyWayOfSayingHello").getText();
 				Assert.assertEquals(textFromApp,"This is my way of saying hello");
 				System.out.println("verifieed this is my way of saying hello ");

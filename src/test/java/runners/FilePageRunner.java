@@ -1,7 +1,9 @@
 package runners;
 
 import org.junit.runner.RunWith;
+import org.testng.annotations.AfterClass;
 
+import com.appium.libraries.Generic;
 import com.appium.libraries.SuperTestNG;
 
 import io.cucumber.junit.Cucumber;

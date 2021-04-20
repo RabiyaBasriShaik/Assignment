@@ -22,11 +22,13 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import com.appium.commonFunctions.Login;
 import com.appium.utilities.ReadXML;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.appmanagement.ApplicationState;
 
 public class Generic extends SuperTestNG {
@@ -70,7 +72,7 @@ public class Generic extends SuperTestNG {
 	}
 
 	public static void waitForProgressBarToDisappearByPoling(final String obj, int maxTime, int pollingtime) {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(maxTime))
+		Wait<AndroidDriver> wait = new FluentWait<AndroidDriver>((AndroidDriver) driver).withTimeout(Duration.ofSeconds(maxTime))
 				.pollingEvery(Duration.ofMillis(pollingtime)).ignoring(NoSuchElementException.class);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id(obj)));
 	}
@@ -96,6 +98,7 @@ public class Generic extends SuperTestNG {
 			findObjectInApp(obj).clear();
 			Thread.sleep(600);
 			findObjectInApp(obj).sendKeys(text);
+			System.out.println("Entered text"+ text);
 
 		} catch (Exception e) {
 
@@ -220,7 +223,7 @@ public class Generic extends SuperTestNG {
 			;
 			System.out.println("Elemnt found" + obj);
 		} catch (Exception e) {
-throw e;
+				throw e;
 		}
 		return element;
 	}
@@ -667,5 +670,7 @@ throw e;
 
 		return ApplicationState.NOT_RUNNING;
 	}
+
+
 
 }

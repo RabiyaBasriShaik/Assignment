@@ -3,6 +3,7 @@ package com.appium.commonFunctions;
 
 
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,12 +18,11 @@ import com.appium.utilities.ReadXL;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
 /*
  * Application Log In
  */
 public class Login extends SuperTestNG{
-	
-
 	
 	//Login @param: Environment
 	public static void login(String environment)
@@ -72,7 +72,12 @@ public class Login extends SuperTestNG{
 					   URL appiumurl = new URL("http://127.0.0.1:4723/wd/hub");
 					  driver = new AndroidDriver<MobileElement>(appiumurl,capability);
 					 
-					  System.out.println("Launched Android App");
+					  
+					  ////////////
+					  
+					   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+				       
+					    System.out.println("Launched Android App");
 					  Generic.waitForObject("Continue",100);
 					  if(Generic.isElementdisplayedInApp("Continue")) {
 						  System.out.println("Continue element displayed");
@@ -92,10 +97,7 @@ public class Login extends SuperTestNG{
 					  
 					}
 				
-			
-			
-			
-		
+				
 			
 		}catch(Exception e)
 		{
@@ -103,7 +105,7 @@ public class Login extends SuperTestNG{
 			driver.close();
 		}
 	}
-
+	
 
 }
 
